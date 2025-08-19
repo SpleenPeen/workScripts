@@ -1,0 +1,179 @@
+[Version]
+Signature = "$Windows NT$"
+Class = SoftwareComponent
+ClassGuid = {5c4c3332-344d-483c-8739-259e934c9cc8}
+Provider = %Company%
+DriverVer = 12/09/2020,8.10.7.1
+CatalogFile = HpqKbFiltr_Component.cat
+
+[Manufacturer]
+%Mfg% = HpqKbFiltrComponent, NTamd64
+
+[HpqKbFiltrComponent.NTamd64]
+%DeviceName% = HpqKbFiltrComponent_Install, SWC\HPHKS&SRVCS
+
+[SourceDisksFiles]
+LanWlanWwanSwitchingServiceUWP.exe = 1
+HotKeyServiceUWP.exe = 1
+HPHotkeyNotification.exe = 1
+HPHotkeyAnalyticClientLib.dll = 1
+HPPKAnalyticClientLib.dll = 1
+CaslSDK.dll = 1
+HPFusionManager.dll = 1
+Logging.dll = 1
+NativeRpcClient.dll = 1
+Newtonsoft.Json.dll = 1
+RpcClient.dll = 1
+NativeRpcClient.dll = 1
+SmbiosSDK.dll = 1
+WMISDK.dll = 1
+;Newtonsoft.Json.xml = 1
+vccorlib140.dll = 1
+vcruntime140.dll = 1
+HPAnalyticsNativeClientLib.dll = 1
+RpcClient.Native.dll = 1
+msvcp140.dll = 1
+HPFusionManager.manifest = 1
+HotkeyServiceUWP.exe.manifest = 1
+HPHotkeyNotification.exe.manifest = 1
+HotkeyServiceUWP.xml = 1
+HotkeyServiceUWP_amd64.xml = 1
+HotkeyServiceUWP_msil.xml = 1
+HotkeyServiceUWP_x86.xml = 1
+HotkeyServiceUWP_HPManifest.xml = 1
+HotkeyServiceUWP_HPManifest.p7s = 1
+HPHotkeyNotification.xml = 1
+HPHotkeyNotification_amd64.xml = 1
+HPHotkeyNotification_msil.xml = 1
+HPHotkeyNotification_x86.xml = 1
+HPHotkeyNotification_HPManifest.xml = 1
+HPHotkeyNotification_HPManifest.p7s = 1
+log4net.dll = 1
+log4net.config = 1
+HPProgrammableKey.User.Program.dll = 1
+HPProgrammableKey.User.Program.manifest = 1
+HPProgrammableKeyAppLoader.exe = 1
+HPProgrammableKeyAppLoader.exe.manifest = 1
+HPProgKeylog4net.config = 1
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[DestinationDirs]
+HPService_Copy = %DRIVER_STORE%
+HPHotkeyNotification_Copy = %DRIVER_STORE% ;%SYSTEM32_DIR%
+HPFusionDependency_Copy = %DRIVER_STORE%
+HPHotkeyAnalytics_Copy = %DRIVER_STORE%
+HPProgrammableKeyAppLoader_Copy = %DRIVER_STORE%
+
+; We need to target Hotkey driver only in the below enclosure type CHIDS.(Manufacturer + Enclosure Type)
+[TargetComputers]
+{f999e8e2-2bed-5ee7-85be-a69096b9544d} ; Notebook
+{9f133554-625d-5ba3-812f-304869fa0b95} ; Convertible
+{1e8fcf22-451c-5f85-9afc-c052c3898f9c} ; Detachable
+{43a89a7e-a980-5955-a78e-a203342321de} ; Tablet
+
+[HpqKbFiltrComponent_Install.NT]
+CopyFiles=HPService_Copy, HPHotkeyNotification_Copy, HPFusionDependency_Copy, HPHotkeyAnalytics_Copy, HPProgrammableKeyAppLoader_Copy
+
+[HpqKbFiltrComponent_Install.NT.Services]
+AddService = LanWlanWwanSwitchingServiceUWP,%SPSVCSINST_STARTSERVICE%,LanWlanWwanSwitchingServiceUWP_Inst
+AddService = HotKeyServiceUWP,%SPSVCSINST_STARTSERVICE%,HotKeyServiceUWP_Inst
+AddService = , 0x00000002 ;  To avoid the warning 1296 
+
+[HpqKbFiltrComponent_Install.NT.Software]
+AddSoftware = HotKeyServiceUWPAppx,, HotKeyUWPAppx_Inst
+
+[HotKeyUWPAppx_Inst]
+SoftwareType=2
+SoftwareFlags=0
+SoftwareID=pfn://AD2F1837.HPSystemInformation_v10z8vjag6ke6
+
+[LanWlanWwanSwitchingServiceUWP_Inst]
+DisplayName = %HP.LanWlanWwanSwitchingServiceUWP%
+Description = %HP.LanWlanWwanSwitchingServiceUWP%
+ServiceType = 0x00000010
+StartType = 2
+ErrorControl = 0
+;LoadOrderGroup = "UIGroup"
+Dependencies   = WlanSvc,WwanSvc       ; WLAN & WWAN Auto Config Service should be running before loading this
+ServiceBinary = %13%\LanWlanWwanSwitchingServiceUWP.exe
+
+[HotKeyServiceUWP_Inst]
+DisplayName = %HP.HotKeyServiceUWP%
+Description = %HP.HotKeyServiceUWP%
+ServiceType = 0x00000010
+StartType = 2
+ErrorControl = 0
+;LoadOrderGroup = "UIGroup"
+Dependencies = rpcss,winmgmt       ; Windows procedure call and Windows Management(WMI) services should be running before loading this
+ServiceBinary = %13%\HotKeyServiceUWP.exe
+
+[HPService_Copy]
+LanWlanWwanSwitchingServiceUWP.exe
+HotKeyServiceUWP.exe
+
+[HPHotkeyNotification_Copy]
+HPHotkeyNotification.exe
+
+[HPFusionDependency_Copy]
+CaslSDK.dll
+HPFusionManager.dll
+Logging.dll
+Newtonsoft.Json.dll
+RpcClient.dll
+NativeRpcClient.dll
+SmbiosSDK.dll
+WMISDK.dll
+;Newtonsoft.Json.xml
+vccorlib140.dll
+vcruntime140.dll
+HPFusionManager.manifest
+HotkeyServiceUWP.exe.manifest
+HPHotkeyNotification.exe.manifest
+HotkeyServiceUWP.xml
+HotkeyServiceUWP_amd64.xml
+HotkeyServiceUWP_msil.xml
+HotkeyServiceUWP_x86.xml
+HotkeyServiceUWP_HPManifest.xml
+HotkeyServiceUWP_HPManifest.p7s
+HPHotkeyNotification.xml
+HPHotkeyNotification_amd64.xml
+HPHotkeyNotification_msil.xml
+HPHotkeyNotification_x86.xml
+HPHotkeyNotification_HPManifest.xml
+HPHotkeyNotification_HPManifest.p7s
+log4net.dll
+log4net.config
+
+[HPHotkeyAnalytics_Copy]
+HPHotkeyAnalyticClientLib.dll
+HPPKAnalyticClientLib.dll
+HPAnalyticsNativeClientLib.dll
+RpcClient.Native.dll
+msvcp140.dll
+
+[HPProgrammableKeyAppLoader_Copy]
+HPProgrammableKey.User.Program.dll
+HPProgrammableKey.User.Program.manifest
+HPProgrammableKeyAppLoader.exe
+HPProgrammableKeyAppLoader.exe.manifest
+HPProgKeylog4net.config
+
+[Strings]
+SPSVCSINST_STARTSERVICE = 0x00000800
+
+; Destination Folder for copy
+WINDOWS_DIR         = 10 ; %SystemRoot%
+SYSTEM32_DIR        = 11 ; %SystemRoot%\system32 
+DRIVER_DIR          = 12 ; %SystemRoot%\system32\drivers
+DRIVER_STORE        = 13 ; Driver package's Driver Store directory.
+INF_DIR             = 17 ; INF file directory
+SYSTEM_DIR          = 50 ; %SystemRoot%\system
+
+Mfg = "HP Inc."
+Company = "HP Development Company, L.P."
+DiskName = "HP UWP Hotkey Support Installation Disk"
+DeviceName = "HP LAN/WLAN/WWAN Switching and Hotkey Service"
+HP.LanWlanWwanSwitchingServiceUWP = "HP LAN/WLAN/WWAN Switching UWP Service"
+HP.HotKeyServiceUWP = "HP Hotkey UWP Service"

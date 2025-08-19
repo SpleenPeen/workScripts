@@ -1,0 +1,1 @@
+writes the systems serial number to the console (very intense stuff).

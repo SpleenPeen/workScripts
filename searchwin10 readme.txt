@@ -1,0 +1,1 @@
+Uninstalls and reinstalls the start menu searchbar software/drivers/whatever it is.
