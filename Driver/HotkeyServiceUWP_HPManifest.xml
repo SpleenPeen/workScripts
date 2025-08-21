@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HPCustomCapabilities xmlns="http://tempuri.org/FusionManifest.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=" file:\\grandcanyon.auth.hpicorp.net\PSSW\Fusion\Manifests\FusionManifest_v1.4.xsd">
+  <IntegrityMethod type="win32">
+    <PK>30 82 01 0a 02 82 01 01 00 bf 3b b4 10 9a 62 d9 b1 71 06 a0 c3 95 b3 47 ce 61 37 5e ee 04 e2 8e 3f 8f 16 ee d1 a3 0d dd fc 1f 11 3e a5 95 9c 59 1c 6e 66 47 90 02 cb 0d a4 7b 6f 36 36 21 27 e9 45 27 d6 7a 7f f7 3b d5 d5 bb 4f 7d 00 01 7d d6 a0 61 71 4a ad 26 30 b0 2f ce 8f a1 d5 93 04 e4 09 1d 15 b8 99 d6 ac 3d 7f 16 bb 76 41 c9 0d 9d a0 be c2 1f 34 a0 7f f2 56 eb b3 d0 a5 f0 45 bc df b9 63 ff 1c a7 c8 a6 00 de 0c ff 75 97 9f 95 fb 48 b2 40 9c c8 63 e8 9c 5a 26 20 29 60 98 2c fd 93 e5 2d 43 85 8f 6f 84 f1 35 a3 a6 7a b0 5c 15 9a 5b fa 54 38 98 7a 76 1e da 22 0e 74 77 ff 93 f1 6f 64 a9 a3 cb 7c ae ba b5 71 18 ff 47 2c 08 55 99 ed a1 e1 ce 85 fd b0 82 52 24 4f ae 73 d8 8c 80 c0 67 40 c5 31 9e 9e a3 c8 4f d2 de dc 6e a1 56 21 90 73 aa 8a a2 f5 d5 02 ea 32 a2 60 b7 8f 53 8f cb 5e 5f 5b 67 02 03 01 00 01</PK>
+  </IntegrityMethod>
+  <Permissions>
+    <Capability name="HPInc.hpSysInfoCap_v10z8vjag6ke6">
+      <Modules>
+        <Module name="WMIService">
+          <Commands>
+              <Command id="2" name="ExecuteBiosWmiCommand">
+				<ArgumentFilters>
+					<ArgumentFilter name="command" type="contained_in_list">1,2,131083</ArgumentFilter>
+					<ArgumentFilter name="commandType" type="contained_in_list">0,9,10,13,15,62</ArgumentFilter>
+				</ArgumentFilters>
+             </Command>
+             <Command id="16" name="GetWmiPropertyValue">
+				<ArgumentFilters>
+					<ArgumentFilter name="property" type="contained_in_list">Value</ArgumentFilter>
+					<ArgumentFilter name="wmiClass" type="contained_in_list">HPBIOS_BIOSString</ArgumentFilter>
+				</ArgumentFilters>
+             </Command>
+          </Commands>
+        </Module>
+      </Modules>
+    </Capability>
+  </Permissions>
+</HPCustomCapabilities>

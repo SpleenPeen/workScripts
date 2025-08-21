@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"><assemblyIdentity name="HPFusionManager" version="8.10.7.1" processorArchitecture="amd64"></assemblyIdentity><clrClass clsid="{8FA1AED2-DE8C-49EF-802C-6D6A70FFCFF4}" progid="HPFusionManager.CaslSdkHandler" threadingModel="Both" name="HPFusionManager.CaslSdkHandler" runtimeVersion="v4.0.30319"></clrClass><file name="HPFusionManager.dll" hashalg="SHA1"></file></assembly>

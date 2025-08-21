@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" name="HPHotkeyNotification" version="8.10.7.1">
+  </assemblyIdentity>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity name="HPFusionManager" version="8.10.7.1" processorArchitecture="amd64" />
+    </dependentAssembly>
+  </dependency>
+</assembly>
