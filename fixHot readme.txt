@@ -1,4 +1,4 @@
-Fixes the brightness hotkeys not working on some HP models.
+Fixes the brightness hotkeys not working on some HP models (only works on win11).
 -Disabled device install prevention policy
 -Uninstalls newer driver version
 -Installs working driver version

@@ -62,7 +62,8 @@ $win10 = @(
 "Microsoft.XboxSpeechToTextOverlay",
 "Microsoft.YourPhone",
 "Microsoft.ZuneMusic",
-"Microsoft.ZuneVideo"
+"Microsoft.ZuneVideo",
+"Microsoft.BingSearch"
 )
 
 	#REMOVE ALL USER SPECIFIC APPS

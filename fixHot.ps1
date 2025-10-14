@@ -25,7 +25,6 @@ if(-not(test-path -path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall
 }
 
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions" -Name DenyDeviceIDs -Value 1 -PropertyType DWORD -Force
-
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions" -Name DenyDeviceIDsRetroactive -Value 0 -PropertyType DWORD -Force
 
 if(-not(test-path -path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions\DenyDeviceIDs")) 
